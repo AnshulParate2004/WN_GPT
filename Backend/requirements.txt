@@ -1,0 +1,25 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-dotenv==1.0.1
+pydantic==2.10.6
+pydantic-settings==2.7.1
+
+# LangChain + LangGraph
+langchain==0.3.20
+langchain-openai==0.3.9
+langchain-core==0.3.45
+langgraph==0.3.18
+
+# Supabase
+supabase==2.13.0
+postgrest==0.19.3
+
+# Async HTTP
+httpx==0.28.1
+aiohttp==3.11.13
+
+# Utilities
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.20
+tenacity==9.0.0
