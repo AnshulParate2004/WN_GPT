@@ -310,3 +310,9 @@ def search_products(tags: list[str]) -> list[dict]:
     if tags:
         q = q.overlaps("tags", tags)
     return q.execute().data or []
+
+
+async def log_patient_document(doc_data: dict) -> dict:
+    """Register an uploaded document (PDF/Image) in the patient_documents table."""
+    res = get_supabase().table("patient_documents").insert(doc_data).execute()
+    return res.data[0] if res.data else {}

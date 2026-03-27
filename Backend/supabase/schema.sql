@@ -245,15 +245,16 @@ CREATE TABLE IF NOT EXISTS wearable_data (
 );
 
 -- ──────────────────────────────────────────────────────────────
--- Product Catalog
+-- Patient Documents (PDF, Images, Reports)
 -- ──────────────────────────────────────────────────────────────
-CREATE TABLE IF NOT EXISTS product_catalog (
-    id          UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name        TEXT NOT NULL,
-    category    TEXT,
-    partner     TEXT,
-    description TEXT,
-    tags        TEXT[] DEFAULT '{}',
-    price_inr   NUMERIC(10,2),
-    created_at  TIMESTAMPTZ DEFAULT NOW()
+CREATE TABLE IF NOT EXISTS patient_documents (
+    id              UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    patient_id      TEXT REFERENCES patients(id),
+    file_name       TEXT NOT NULL,
+    file_type       TEXT, -- e.g. 'application/pdf', 'image/jpeg'
+    bucket_name     TEXT NOT NULL,
+    storage_path    TEXT NOT NULL,
+    public_url      TEXT,
+    metadata        JSONB DEFAULT '{}',
+    created_at      TIMESTAMPTZ DEFAULT NOW()
 );

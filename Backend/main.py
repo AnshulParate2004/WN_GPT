@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import get_settings
 from app.middleware.auth_handler import AuthMiddleware
-from app.api.v1 import chat, health_records, hospital
+from app.api.v1 import chat, health_records, hospital, patient
 from app.core.graph_factory import get_graph   # pre-warm on startup
 
 
@@ -48,6 +48,7 @@ API_PREFIX = "/api/v1"
 app.include_router(chat.router, prefix=API_PREFIX)
 app.include_router(health_records.router, prefix=API_PREFIX)
 app.include_router(hospital.router, prefix=API_PREFIX)
+app.include_router(patient.router, prefix=API_PREFIX)
 
 
 # ── Health Check ─────────────────────────────────────────────────────────────

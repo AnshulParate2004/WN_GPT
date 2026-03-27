@@ -24,6 +24,7 @@ Intents:
 - mental_health    → anxiety, depression, stress, PHQ, GAD, mental wellness
 - family_care      → family health, household, spouse, children records
 - product_rec      → supplements, products, health products, recommend
+- report_analysis  → analyze report, what does this pdf say, lab results, blood test
 - nutrisense       → diet, nutrition, meal plan, calories, metabolic
 - fitguide         → exercise, workout, fitness, steps, gym, activity
 - health_records   → ABDM, ABHA, health record, medical history pull
@@ -53,6 +54,7 @@ def detect_intent(state: AgentState) -> str:
         "mental_health": ["anxiety", "depress", "stress", "phq", "gad", "mental"],
         "family_care": ["family", "household", "children", "spouse"],
         "product_rec": ["supplement", "product", "recommend", "suggest"],
+        "report_analysis": ["analyze", "report", "pdf", "lab", "test", "result", "blood"],
         "nutrisense": ["diet", "nutrition", "meal plan", "calorie", "metabolic", "food"],
         "fitguide": ["exercise", "workout", "fitness", "steps", "gym", "activity"],
         "health_records": ["abdm", "abha", "health record", "history"],
@@ -86,6 +88,7 @@ def route_to_agent(state: AgentState) -> str:
         "mental_health": "mental_health_agent",
         "family_care": "family_care_agent",
         "product_rec": "product_rec_agent",
+        "report_analysis": "report_analyzer_agent",
         "nutrisense": "nutrisense_agent",
         "fitguide": "fitguide_agent",
         "health_records": "health_records_node",

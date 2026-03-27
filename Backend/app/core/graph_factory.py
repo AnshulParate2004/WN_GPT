@@ -18,11 +18,10 @@ from app.services.agents.discharge import run_discharge_agent
 from app.services.agents.insurance import run_insurance_agent
 from app.services.agents.hospital_ops import run_hospital_ops_agent
 from app.services.agents.pharmacy import run_pharmacy_agent
-from app.services.agents.mental_health import run_mental_health_agent
-from app.services.agents.family_care import run_family_care_agent
 from app.services.agents.product_rec import run_product_rec_agent
 from app.services.agents.nutrisense import run_nutrisense_agent
 from app.services.agents.fitguide import run_fitguide_agent
+from app.services.agents.report_analyzer import run_report_analyzer_agent
 from app.utils.llm_wrapper import get_llm
 
 
@@ -81,6 +80,7 @@ def build_graph() -> StateGraph:
     builder.add_node("mental_health_agent", run_mental_health_agent)
     builder.add_node("family_care_agent", run_family_care_agent)
     builder.add_node("product_rec_agent", run_product_rec_agent)
+    builder.add_node("report_analyzer_agent", run_report_analyzer_agent)
     builder.add_node("nutrisense_agent", run_nutrisense_agent)
     builder.add_node("fitguide_agent", run_fitguide_agent)
     builder.add_node("health_records_node", run_health_records_node)
@@ -106,6 +106,7 @@ def build_graph() -> StateGraph:
             "mental_health_agent": "mental_health_agent",
             "family_care_agent": "family_care_agent",
             "product_rec_agent": "product_rec_agent",
+            "report_analyzer_agent": "report_analyzer_agent",
             "nutrisense_agent": "nutrisense_agent",
             "fitguide_agent": "fitguide_agent",
             "health_records_node": "health_records_node",
@@ -118,7 +119,7 @@ def build_graph() -> StateGraph:
         "triage_agent", "booking_agent", "channeling_agent", "adherence_agent",
         "care_manager_agent", "discharge_agent", "insurance_agent", "hospital_ops_agent",
         "pharmacy_agent", "mental_health_agent", "family_care_agent", "product_rec_agent",
-        "nutrisense_agent", "fitguide_agent",
+        "report_analyzer_agent", "nutrisense_agent", "fitguide_agent",
         "health_records_node", "general_response",
     ]:
         builder.add_edge(node, END)
