@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { api } from "@/lib/api";
-import { Send } from "lucide-react";
+import { Send, Mic, MicOff, Volume2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useVoice } from "@/hooks/useVoice";
 
 interface Message {
   role: "user" | "assistant";
@@ -12,7 +13,9 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isAutoSpeak, setIsAutoSpeak] = useState(true);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const { isListening, startListening, stopListening, speak } = useVoice();
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -37,6 +40,7 @@ export default function ChatPage() {
           return updated;
         });
       });
+      if (isAutoSpeak) speak(assistantContent);
     } catch {
       setMessages((prev) => {
         const updated = [...prev];
@@ -48,6 +52,17 @@ export default function ChatPage() {
       });
     }
     setLoading(false);
+  };
+
+  const handleMicClick = () => {
+    if (isListening) {
+      stopListening();
+    } else {
+      startListening((text) => {
+        setInput(text);
+        // Optional: auto-send if desired
+      });
+    }
   };
 
   return (
@@ -94,12 +109,29 @@ export default function ChatPage() {
         <div ref={bottomRef} />
       </div>
 
-      <div className="card-elegant p-2 flex items-center gap-2">
+      <div className="card-elegant p-2 flex items-center gap-2 mb-2">
+        <button
+          onClick={() => setIsAutoSpeak(!isAutoSpeak)}
+          className={`h-9 w-9 rounded-md flex items-center justify-center transition-colors ${
+            isAutoSpeak ? "text-primary bg-primary/10" : "text-muted-foreground"
+          }`}
+          title="Toggle Voice Output"
+        >
+          <Volume2 className="h-4 w-4" />
+        </button>
+        <button
+          onClick={handleMicClick}
+          className={`h-9 w-9 rounded-md flex items-center justify-center transition-all ${
+            isListening ? "bg-red-500 text-white animate-pulse" : "bg-secondary text-foreground hover:bg-secondary/80"
+          }`}
+        >
+          {isListening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
+        </button>
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && send()}
-          placeholder="Type a message..."
+          placeholder={isListening ? "Listening..." : "Type a message..."}
           className="flex-1 bg-transparent px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground outline-none"
         />
         <button

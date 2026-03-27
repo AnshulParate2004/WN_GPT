@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { useLocation } from "react-router-dom";
 import { NavLink } from "@/components/NavLink";
 import { useTheme } from "@/hooks/useTheme";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Sidebar,
   SidebarContent,
@@ -28,6 +29,7 @@ import {
   Sun,
   Moon,
   User,
+  Mic,
 } from "lucide-react";
 
 const navItems = [
@@ -48,7 +50,7 @@ function AppSidebar() {
   const location = useLocation();
 
   return (
-    <Sidebar collapsible="icon" className="border-r border-border">
+    <Sidebar collapsible="icon" className="border-r border-border glass backdrop-blur-xl">
       <SidebarContent className="pt-6">
         <div className="px-4 mb-8">
           {!collapsed && (
@@ -104,6 +106,10 @@ function TopBar() {
           {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
         </button>
         <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-1.5 px-2 py-1 rounded-full bg-primary/5 border border-primary/10">
+            <Mic className="h-3 w-3 text-primary animate-pulse" />
+            <span className="text-[10px] font-bold uppercase tracking-wider text-primary">Voice Intelligence Active</span>
+          </div>
           <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
             <User className="h-4 w-4 text-primary" />
           </div>
@@ -121,7 +127,20 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         <AppSidebar />
         <div className="flex-1 flex flex-col min-w-0">
           <TopBar />
-          <main className="flex-1 overflow-auto p-4 md:p-6">{children}</main>
+          <main className="flex-1 overflow-auto p-4 md:p-6 bg-background/30 backdrop-blur-sm">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={location.pathname}
+                initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -10, filter: "blur(10px)" }}
+                transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                className="h-full w-full"
+              >
+                {children}
+              </motion.div>
+            </AnimatePresence>
+          </main>
         </div>
       </div>
     </SidebarProvider>
