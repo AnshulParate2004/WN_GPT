@@ -4,7 +4,9 @@ FastAPI Application Entry Point — WellnessGPT Backend
 from __future__ import annotations
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 from app.core.config import get_settings
 from app.middleware.auth_handler import AuthMiddleware
@@ -42,6 +44,11 @@ app.add_middleware(
 
 # Patient Auth Middleware
 app.add_middleware(AuthMiddleware)
+
+# Mount local uploads directory
+if not os.path.exists("uploads"):
+    os.makedirs("uploads")
+app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
 
 # ── Routers ──────────────────────────────────────────────────────────────────
 API_PREFIX = "/api/v1"

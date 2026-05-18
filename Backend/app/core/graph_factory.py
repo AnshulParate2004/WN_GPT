@@ -22,6 +22,8 @@ from app.services.agents.product_rec import run_product_rec_agent
 from app.services.agents.nutrisense import run_nutrisense_agent
 from app.services.agents.fitguide import run_fitguide_agent
 from app.services.agents.report_analyzer import run_report_analyzer_agent
+from app.services.agents.mental_health import run_mental_health_agent
+from app.services.agents.family_care import run_family_care_agent
 from app.utils.llm_wrapper import get_llm
 
 

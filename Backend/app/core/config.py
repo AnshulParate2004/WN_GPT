@@ -17,10 +17,8 @@ class Settings(BaseSettings):
     azure_openai_deployment: str = "gpt-4o"
     openai_api_version: str = "2024-12-01-preview"
 
-    # Supabase
-    supabase_url: str
-    supabase_anon_key: str
-    supabase_service_role_secret: str
+    # SQLite
+    sqlite_db_path: str = "wellness.db"
 
     # Azure Speech (optional for voice input)
     azure_speech_key: str = ""

@@ -1,15 +1,12 @@
 """
-Supabase Storage Manager
+Local Storage Manager
 ────────────────────────
-Handles file uploads to Supabase buckets (PDFs, Images, Medical Reports).
+Handles file uploads to the local `uploads/` directory.
 """
 from __future__ import annotations
+import os
 import uuid
-from app.db.supabase import get_supabase
-from app.core.config import get_settings
-
-settings = get_settings()
-
+from pathlib import Path
 
 class StorageManager:
     @staticmethod
@@ -19,31 +16,28 @@ class StorageManager:
         content_type: str,
         bucket: str = "patient-docs"
     ) -> dict:
-        """Uploads a file to a Supabase bucket and returns the metadata + URL."""
-        supabase = get_supabase()
-        
-        # Unique path: patient_id/uuid_filename
+        """Uploads a file locally and returns the metadata + URL."""
+        # We will ignore 'bucket' and put everything in 'uploads'
         ext = file_name.split(".")[-1] if "." in file_name else "bin"
-        storage_path = f"uploads/{uuid.uuid4()}.{ext}"
-
-        # Upload to bucket
-        # Note: Supabase Python client's storage.upload is synchronous for now
-        res = supabase.storage.from_(bucket).upload(
-            path=storage_path,
-            file=file_bytes,
-            file_options={"content-type": content_type}
-        )
+        unique_name = f"{uuid.uuid4()}.{ext}"
         
-        # Get public URL
-        public_url = supabase.storage.from_(bucket).get_public_url(storage_path)
+        base_dir = Path(__file__).resolve().parents[2]
+        uploads_dir = base_dir / "uploads"
+        uploads_dir.mkdir(exist_ok=True)
+        
+        file_path = uploads_dir / unique_name
+        with open(file_path, "wb") as f:
+            f.write(file_bytes)
+            
+        # The public URL will be served via FastAPI static files
+        public_url = f"/uploads/{unique_name}"
 
         return {
-            "bucket": bucket,
-            "path": storage_path,
+            "bucket": "local-uploads",
+            "path": unique_name,
             "url": public_url,
             "file_name": file_name,
             "file_type": content_type
         }
-
 
 storage_manager = StorageManager()
