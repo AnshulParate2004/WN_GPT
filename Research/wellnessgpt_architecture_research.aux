@@ -1,0 +1,51 @@
+\relax 
+\providecommand\zref@newlabel[2]{}
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Three Different Systems --- Do Not Conflate}{3}{section.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces WellnessGPT (HeyDoc TSE) $\neq  $ Wellbeing SRS $\neq  $ WN-GPT Backend (our agent)}}{3}{table.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}What Our Agent Actually Implements vs.\ HeyDoc WellnessGPT TSE}{4}{subsection.1.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Our agent is an early \emph  {prototype} of specialist routing, not the full HeyDoc WellnessGPT platform}}{4}{table.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Problem Statement (WN-GPT Agent)}{5}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Clinical and Operational Context}{5}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Core Problems Addressed by Our Agent}{5}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Research Question}{5}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Scope of This Document}{5}{subsection.2.4}\protected@file@percent }
+\gdef \LT@i {\LT@entry 
+    {1}{97.04872pt}\LT@entry 
+    {1}{131.50148pt}\LT@entry 
+    {1}{219.39566pt}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}WN-GPT Backend Architecture (Our Implementation)}{6}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Repository Layout}{6}{subsection.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces WN-GPT Agent backend structure (\texttt  {D:\textbackslash Internship\textbackslash WN\_GPT\textbackslash Backend})}}{6}{table.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Technology Stack}{6}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Fifteen Specialist Agents}{6}{subsection.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{Agent registry in \texttt  {graph\_factory.py} (15 ReAct specialists + 2 utility nodes)}}{7}{table.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Agent Process Flow}{8}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Supervisor Routing (Not an Orchestrator Agent)}{8}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces High-level LangGraph flow: single intent, single agent, then END}}{8}{figure.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Intent Detection Algorithm}{8}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Per-Agent Micro-Flow (API Path)}{8}{subsection.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Inside one specialist agent (e.g.\ NutriSense, Triage, Pharmacy)}}{9}{figure.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}API vs CLI Paths}{9}{subsection.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Dual interfaces---research comparisons should use the API path for agent fidelity}}{9}{table.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Structured Data Side-Channels}{9}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Page-Indexed Grounding for Hallucination Reduction}{10}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Motivation}{10}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Page Indexing Concept}{10}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Current vs Planned Implementation}{11}{subsection.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Anti-hallucination layers: implemented today vs page-index roadmap}}{11}{table.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Why Page Indexing Reduces Hallucination}{11}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Comparative Analysis}{12}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Platform Summaries}{12}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Comparison Table}{12}{subsection.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Hippocratic AI vs August AI vs \textbf  {our} WN-GPT Agent (not HeyDoc WellnessGPT TSE)}}{12}{table.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Process Flow Comparison}{13}{subsection.6.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Simplified operational flows (conceptual)}}{13}{figure.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Strategic Positioning (Our Agent)}{13}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion and Future Work}{14}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Summary}{14}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Future Work}{14}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}References}{14}{subsection.7.3}\protected@file@percent }
+\gdef \@abspage@last{15}

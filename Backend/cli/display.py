@@ -1,56 +1,31 @@
-"""Terminal styling and intent colour mapping."""
+"""Rich-based terminal output for the CLI."""
 from __future__ import annotations
 
-RESET = "\033[0m"
-BOLD = "\033[1m"
-CYAN = "\033[36m"
-GREEN = "\033[32m"
-YELLOW = "\033[33m"
-RED = "\033[31m"
-DIM = "\033[2m"
+from rich.console import Console
+from rich.markup import escape
+from rich.panel import Panel
+from rich.rule import Rule
 
-INTENT_COLORS: dict[str, str] = {
-    "triage": RED,
-    "booking": GREEN,
-    "channeling": CYAN,
-    "adherence": YELLOW,
-    "care_plan": GREEN,
-    "discharge": CYAN,
-    "insurance": YELLOW,
-    "hospital_ops": CYAN,
-    "pharmacy": RED,
-    "mental_health": YELLOW,
-    "family_care": GREEN,
-    "product_rec": CYAN,
-    "report_analysis": RED,
-    "nutrisense": GREEN,
-    "fitguide": YELLOW,
-    "health_records": BOLD,
-    "general": RESET,
-}
+from cli.theme import label_for_intent, style_for_intent
 
 
-def color_for_intent(intent: str) -> str:
-    return INTENT_COLORS.get(intent, RESET)
+def print_error(console: Console, message: str) -> None:
+    console.print(f"[error]Error:[/error] {escape(message)}")
 
 
-def print_banner(patient_name: str) -> None:
-    print(f"{BOLD}{CYAN}WellnessGPT CLI started for {patient_name}{RESET}")
+def print_answer_start(console: Console, intent: str) -> None:
+    label = label_for_intent(intent)
+    style = style_for_intent(intent)
+    console.print()
+    console.print(Rule(f"[{style}]{label}[/{style}]", style="dim"))
 
 
-def print_error(message: str) -> None:
-    print(f"{RED}✗ {message}{RESET}")
+def print_answer_token(console: Console, token: str) -> None:
+    if token:
+        console.print(token, end="", highlight=False)
 
 
-def print_user_prompt() -> str:
-    return input(f"\n{BOLD}{CYAN}You:{RESET} ").strip()
-
-
-def print_intent_header(intent: str) -> None:
-    color = color_for_intent(intent)
-    print(f"\n{color}{BOLD}[{intent.upper()}]{RESET} ", end="", flush=True)
-
-
-def print_stream_token(token: str, intent: str) -> None:
-    color = color_for_intent(intent)
-    print(f"{color}{token}{RESET}", end="", flush=True)
+def print_answer_end(console: Console) -> None:
+    console.print()
+    console.print(Rule(style="dim"))
+    console.print()

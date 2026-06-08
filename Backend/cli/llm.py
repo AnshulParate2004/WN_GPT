@@ -3,9 +3,10 @@ from __future__ import annotations
 
 from langchain_core.messages import SystemMessage
 from langchain_openai import AzureChatOpenAI
+from rich.console import Console
 
 from app.core.config import get_settings
-from cli.display import print_intent_header, print_stream_token
+from cli.display import print_answer_end, print_answer_start, print_answer_token
 from cli.prompts import patient_context, system_prompt_for
 
 
@@ -23,6 +24,7 @@ def get_streaming_llm() -> AzureChatOpenAI:
 
 
 async def stream_response(
+    console: Console,
     patient: dict,
     chat_history: list,
     intent: str,
@@ -33,14 +35,14 @@ async def stream_response(
         *chat_history,
     ]
 
-    print_intent_header(intent)
+    print_answer_start(console, intent)
     full = ""
 
     async for chunk in llm.astream(messages):
         token = chunk.content
         if token:
-            print_stream_token(token, intent)
+            print_answer_token(console, token)
             full += token
 
-    print()
+    print_answer_end(console)
     return full

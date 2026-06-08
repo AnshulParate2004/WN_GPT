@@ -1,0 +1,197 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref,booktabs,xcolor,titlesec,fancyhdr,enumitem,float,tabularx,mdframed,parskip,microtype,inputenc,fontenc}
+
+\definecolor{aidocblue}{RGB}{15,52,96}
+\definecolor{aidocteal}{RGB}{0,168,168}
+\definecolor{lightgray}{RGB}{248,249,250}
+\definecolor{darkgray}{RGB}{55,65,81}
+
+\titleformat{\section}{\Large\bfseries\color{aidocblue}}{\thesection.}{0.5em}{}[\titlerule]
+\titleformat{\subsection}{\large\bfseries\color{aidocteal}}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{darkgray}}{\thesubsubsection.}{0.5em}{}
+
+\pagestyle{fancy}\fancyhf{}
+\rhead{\textcolor{aidocblue}{\textit{Technical System Essay}}}
+\lhead{\textcolor{aidocblue}{\textbf{Aidoc}}}
+\rfoot{\thepage}
+\lfoot{\textcolor{darkgray}{\footnotesize Competitor Analysis --- WellnessGPT Research}}
+
+\hypersetup{colorlinks=true,linkcolor=aidocblue,urlcolor=aidocteal,pdftitle={Aidoc TSE}}
+
+\begin{document}
+\begin{titlepage}
+    \centering\vspace*{2cm}
+    {\Huge\bfseries\color{aidocblue} Aidoc}\\[0.5cm]
+    {\Large\color{aidocteal} Technical System Essay (TSE)}\\[0.3cm]
+    {\large\color{darkgray} Enterprise Medical AI Operating System (aiOS)}\\[2cm]
+    \begin{mdframed}[backgroundcolor=lightgray,linecolor=aidocblue,linewidth=1.5pt,roundcorner=5pt]
+        \centering\vspace{0.3cm}
+        \textit{``See What Matters. Less Noise. More Focus.''}\\[0.3cm]
+        \textbf{Website:} \href{https://aidoc.com}{aidoc.com}\\
+        \textbf{Founded:} 2016, Tel Aviv, Israel / New York, USA\\
+        \textbf{Domain:} Clinical AI OS for Radiology and Care Coordination\\
+        \textbf{Total Funding:} $\sim$\$370--\$384 Million\\
+        \vspace{0.3cm}
+    \end{mdframed}
+    \vspace{2cm}
+    \begin{tabular}{ll}
+        \textbf{Document Type:} & Technical System Essay \\
+        \textbf{Subject:} & Competitor Analysis of WellnessGPT \\
+        \textbf{Date:} & March 2026 \\
+    \end{tabular}
+\end{titlepage}
+
+\tableofcontents\newpage
+
+\begin{abstract}
+\noindent This TSE analyses \textbf{Aidoc}, a clinical AI company that provides the \textbf{aiOS} --- an enterprise AI operating system for medical imaging and care coordination. Aidoc is analyzed here as a direct architectural competitor to WellnessGPT: both platforms brand themselves as ``AI Operating Systems'' for healthcare, but differ fundamentally in domain (imaging vs. workflow orchestration) and technical approach (discriminative detection vs. generative agentic AI).
+\end{abstract}\newpage
+
+\section{Introduction and Overview}
+
+\subsection{What is Aidoc?}
+\textbf{Aidoc} is a clinical AI company best known for its \textbf{aiOS\texttrademark} --- an enterprise-grade AI Operating System that monitors incoming clinical imaging data, detects acute abnormalities, and orchestrates care coordination across the hospital. Initially focused on radiology triage, Aidoc has expanded into a full care coordination platform spanning radiology, neurology, cardiology, and surgery.
+
+\begin{table}[H]\centering\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{lX}\toprule
+\textbf{Attribute} & \textbf{Detail}\\\midrule
+Company Name     & Aidoc \\
+Platform         & aiOS\texttrademark{} (AI Operating System for Healthcare) \\
+Website          & \href{https://aidoc.com}{aidoc.com} \\
+Founded          & 2016 \\
+HQ               & Tel Aviv, Israel (R\&D) and New York City (Global HQ) \\
+CEO              & Elad Walach \\
+CTO              & Michael Braginsky \\
+Founders' Background & Elite Talpiot unit, Israel Air Force \\
+Deployments      & 1,600+ medical centers worldwide \\
+FDA Clearances   & 17+ individual product clearances (industry-leading) \\
+Total Funding    & $\sim$\$370--\$384 Million \\
+Key Investors    & TCV, General Catalyst, Alpha Intelligence Capital, Square Peg \\
+Business Model   & Enterprise SaaS subscription (per-module, per-volume) \\
+\bottomrule\end{tabularx}\caption{Aidoc Platform Identity}\end{table}
+
+\section{The aiOS --- Core Architecture}
+
+Aidoc's \textbf{aiOS\texttrademark} is its core technical product. It serves as the infrastructure for deploying, managing, and orchestrating medical AI at scale within a health system.
+
+\subsection{How aiOS Works}
+
+\begin{enumerate}
+    \item \textbf{Always-On Ingestion:} aiOS monitors all incoming DICOM images from CT/MRI scanners and cross-references incoming EHR data in real-time, without requiring a manual trigger
+    \item \textbf{Autonomous Processing:} AI algorithms analyze scans in the background as soon as they arrive in the PACS
+    \item \textbf{Prioritization and Alerting:} Critical findings (stroke, pulmonary embolism, hemorrhage) cause the platform to move that case to the top of the radiologist's worklist and push alerts to relevant specialist teams
+    \item \textbf{Care Coordination:} Notifies multidisciplinary care teams via mobile app or desktop interface; right specialist sees right patient at the right time
+    \item \textbf{Third-Party AI Integration:} aiOS can host and orchestrate third-party AI algorithms alongside Aidoc's native models (vendor-neutral platform)
+\end{enumerate}
+
+\subsection{Key Architectural Principles}
+
+\begin{itemize}[noitemsep]
+    \item \textbf{Always-On:} No manual activation required --- AI runs continuously in the background
+    \item \textbf{Alert-Fatigue Aware:} Models tuned for high specificity to avoid overwhelming clinical teams with false positives
+    \item \textbf{Vendor Neutral:} Can orchestrate third-party AI models alongside native Aidoc models
+    \item \textbf{Closed-Loop Notification:} Tracks whether alerts have been acknowledged and escalates if not
+\end{itemize}
+
+\section{Product Portfolio}
+
+Aidoc holds \textbf{17+ FDA clearances} --- the most of any clinical AI company --- spanning multiple specialties.
+
+\begin{table}[H]\centering\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{lX}\toprule
+\textbf{Specialty} & \textbf{Key AI Capabilities}\\\midrule
+\textbf{Radiology}     & Intracranial hemorrhage, pulmonary embolism, C-spine fractures, rib fractures \\
+\textbf{Neurovascular} & Stroke care: LVO detection, ICH notification, time-sensitive alert routing \\
+\textbf{Cardiology}    & Pulmonary embolism (PE), coronary artery calcification \\
+\textbf{Vascular}      & Abdominal aortic aneurysm (AAA) screening \\
+\textbf{Oncology}      & Incidental malignancy detection across modalities \\
+\textbf{Surgery}       & AI-based care coordination and surgical worklist prioritization \\
+\bottomrule\end{tabularx}\caption{Aidoc Product Portfolio by Specialty}\end{table}
+
+\section{Technology Stack}
+
+\begin{table}[H]\centering\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{llX}\toprule
+\textbf{Layer} & \textbf{Technology} & \textbf{Role}\\\midrule
+AI/ML Models    & Deep Learning CNNs          & Discriminative detection trained on millions of clinical images \\
+Cloud           & AWS (Amazon Web Services)   & Scalable, secure cloud compute \\
+Data Standards  & FHIR / HL7                  & Healthcare data exchange \\
+Imaging         & DICOM / PACS integration    & Native imaging archive connectivity \\
+Compute Partner & NVIDIA Clara                & GPU acceleration for rapid medical image inference \\
+Mobile          & iOS / Android app           & Specialist notifications and alert management \\
+EHR Integration & Epic / Oracle Health (Cerner) & EHR data context for AI prioritization \\
+Third-Party     & Vendor-neutral AI marketplace & Host external AI algorithms on aiOS \\
+\bottomrule\end{tabularx}\caption{Aidoc Technology Stack}\end{table}
+
+\section{System Flow --- Hospital Deployment}
+
+\subsection{Onboarding}
+\begin{enumerate}[noitemsep]
+    \item Hospital selects clinical AI modules via Aidoc's \textbf{Solution Selection Tool}
+    \item 2--3 week implementation period (zero-footprint cloud or hybrid deployment)
+    \item Plugs into existing PACS (radiology viewer) and EHR (patient record system)
+\end{enumerate}
+
+\subsection{Operational Workflow}
+\begin{enumerate}[noitemsep]
+    \item Radiologist worklist is automatically prioritized by AI urgency scores
+    \item Specialist teams receive real-time push notifications for critical findings (e.g., stroke team for LVO)
+    \item Alerts are tracked; unacknowledged critical alerts escalate automatically
+    \item Radiology reports generated with AI-detected findings pre-highlighted
+    \item Management tracks outcomes via the \textbf{Aidoc Analytics Dashboard}
+\end{enumerate}
+
+\section{Compliance and Regulatory Standing}
+
+\begin{table}[H]\centering\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{lX}\toprule
+\textbf{Certification} & \textbf{Detail}\\\midrule
+FDA Clearances & 17+ individual 510(k) clearances --- industry-leading count \\
+MDSAP          & Medical Device Single Audit Program --- globally recognized \\
+ISO 13485      & Medical Device Quality Management System \\
+ISO 14971      & Medical Device Risk Management \\
+IEC 62304      & Medical Device Software Life Cycle \\
+HIPAA          & Full US health data privacy compliance \\
+GDPR           & European data protection compliance \\
+SOC 2 Type II  & Enterprise security operations certification \\
+\bottomrule\end{tabularx}\caption{Aidoc Regulatory and Compliance Certifications}\end{table}
+
+\section{Market Position and Quantifiable Impact}
+
+\begin{table}[H]\centering\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{lX}\toprule
+\textbf{Metric} & \textbf{Value}\\\midrule
+Hospital Deployments    & 1,600+ medical centers globally \\
+TAT Reduction           & Up to 30\% faster turnaround time for acute cases \\
+Length of Stay (LOS)    & Measurable reduction for time-sensitive admissions \\
+FDA Clearances          & 17+ (more than any single clinical AI competitor) \\
+Key Health Systems      & Hackensack Meridian, Baptist Health, University of Rochester MC \\
+Professional Partnership & American College of Radiology (ACR) \\
+\bottomrule\end{tabularx}\caption{Market Impact Metrics}\end{table}
+
+\section{Competitive Positioning vs. WellnessGPT}
+
+Both Aidoc and WellnessGPT brand themselves as \textbf{``AI Operating Systems for Healthcare''}, making this a direct architectural comparison.
+
+\begin{table}[H]\centering\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{lXX}\toprule
+\textbf{Dimension} & \textbf{Aidoc aiOS} & \textbf{WellnessGPT}\\\midrule
+OS Branding      & aiOS\texttrademark{} for imaging AI & Agentic AI OS for Healthcare \\
+Core Domain      & Medical imaging triage \& care routing & Clinical workflow + admin automation \\
+AI Type          & Discriminative (detection) + Agentic (routing) & Generative + Agentic (LLM-based) \\
+Agent Scope      & Imaging-centric alerts and routing & 15+ workflow agents (triage, billing, docs) \\
+Memory           & PACS/DICOM history-based             & HealthMem: longitudinal Graph + Vector + KV \\
+EHR Integration  & Epic, Oracle (imaging-centric)       & FHIR/ABDM (workflow-centric) \\
+Compliance       & 17+ FDA, HIPAA, GDPR, ISO 13485      & HIPAA, ABDM, FHIR \\
+Geography        & Global (US, Europe, Israel-origin)   & India-first \\
+Funding          & $\sim$\$370--\$384M                  & Startup backing (Google/MS/NVIDIA) \\
+\bottomrule\end{tabularx}\caption{Aidoc vs. WellnessGPT Comparison}\end{table}
+
+\section{Conclusion}
+
+Aidoc's \textbf{aiOS\texttrademark} is the closest architectural parallel to WellnessGPT among competitors --- both platforms position themselves as an AI Operating System for healthcare. However, Aidoc's OS is specialized for \textbf{imaging AI orchestration}, while WellnessGPT's OS is specialized for \textbf{clinical workflow agent orchestration}. Aidoc's 17+ FDA clearances and 1,600+ hospital deployments demonstrate extraordinary regulatory and commercial traction in the imaging space. WellnessGPT's competitive advantage lies in its broader scope (triage, billing, documentation, patient management) and its unique HealthMem longitudinal memory layer, which Aidoc does not offer. The two systems are \textbf{partially complementary} at the enterprise healthcare level.
+
+\vspace{0.5cm}\hrule\vspace{0.3cm}
+\small\textbf{Source:} \href{https://aidoc.com}{aidoc.com}. Research conducted March 2026.
+\end{document}

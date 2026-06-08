@@ -1,0 +1,67 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{mdframed}
+\usepackage{parskip}
+
+\definecolor{primaryblue}{RGB}{5, 150, 105}
+\definecolor{darkgray}{RGB}{55, 65, 81}
+\definecolor{lightgray}{RGB}{248, 249, 250}
+
+\titleformat{\section}{\Large\bfseries\color{primaryblue}}{\thesection.}{0.5em}{}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textit{August AI --- TSE}}
+\lhead{\textbf{Competitor Analysis}}
+\rfoot{\thepage}
+
+\begin{document}
+\begin{titlepage}
+\centering\vspace*{2cm}
+{\Huge\bfseries\color{primaryblue} August AI}\\[0.5cm]
+{\Large Technical System Essay}\\[0.3cm]
+{\large Consumer Health Companion (India / Global)}\\[2cm]
+\begin{mdframed}[backgroundcolor=lightgray,linecolor=primaryblue,linewidth=1.5pt]
+\centering
+\textbf{Website:} \url{https://www.meetaugust.ai}\\
+\textbf{Founded:} 2022 (Bengaluru, India)\\
+\textbf{Positioning:} 24/7 personal health AI; symptom guidance; lab report storage\\
+\end{mdframed}
+\vfill
+\textbf{Date:} May 2026 \quad \textbf{Context:} WellnessGPT comparative research
+\end{titlepage}
+
+\section{Overview}
+August AI is a \textbf{consumer-facing} health assistant available on mobile and messaging channels. It emphasizes accessible symptom checking, secure storage of lab reports, and personalized tracking. It is \textbf{not} architected as a multi-agent hospital operating system; contrast with WellnessGPT's 15 specialist LangGraph agents is documented in \texttt{wellnessgpt\_architecture\_research.tex}.
+
+\section{Reported Capabilities}
+\begin{itemize}
+    \item Symptom analysis and health Q\&A
+    \item Long-term memory of conversations and uploaded reports
+    \item Nutrition, vitals, and lifestyle tracking features
+    \item Azure OpenAI-backed infrastructure (per public materials)
+    \item Clear disclaimer: support tool, not a substitute for professional care
+\end{itemize}
+
+\section{Comparison Snapshot (vs WellnessGPT)}
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+ & \textbf{August AI} & \textbf{WellnessGPT} \\
+\midrule
+Architecture & Unified companion & 15 routed specialist agents \\
+Enterprise API & Consumer product & FastAPI + LangGraph \\
+Grounding & User uploads + memory & SQLite tools + planned page index \\
+India ABDM & Consumer records focus & ABHA/ABDM integration path \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\end{document}

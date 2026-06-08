@@ -1,0 +1,184 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref,booktabs,xcolor,titlesec,fancyhdr,enumitem,float,tabularx,mdframed,parskip,microtype,inputenc,fontenc}
+
+\definecolor{qureblue}{RGB}{0,84,166}
+\definecolor{qurered}{RGB}{210,40,40}
+\definecolor{lightgray}{RGB}{248,249,250}
+\definecolor{darkgray}{RGB}{55,65,81}
+
+\titleformat{\section}{\Large\bfseries\color{qureblue}}{\thesection.}{0.5em}{}[\titlerule]
+\titleformat{\subsection}{\large\bfseries\color{qurered}}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{darkgray}}{\thesubsubsection.}{0.5em}{}
+
+\pagestyle{fancy}\fancyhf{}
+\rhead{\textcolor{qureblue}{\textit{Technical System Essay}}}
+\lhead{\textcolor{qureblue}{\textbf{Qure.ai}}}
+\rfoot{\thepage}
+\lfoot{\textcolor{darkgray}{\footnotesize Competitor Analysis --- WellnessGPT Research}}
+
+\hypersetup{colorlinks=true,linkcolor=qureblue,urlcolor=qurered,pdftitle={Qure.ai TSE}}
+
+\begin{document}
+\begin{titlepage}
+    \centering\vspace*{2cm}
+    {\Huge\bfseries\color{qureblue} Qure.ai}\\[0.5cm]
+    {\Large\color{qurered} Technical System Essay (TSE)}\\[0.3cm]
+    {\large\color{darkgray} AI-Powered Medical Imaging and Diagnostics Platform}\\[2cm]
+    \begin{mdframed}[backgroundcolor=lightgray,linecolor=qureblue,linewidth=1.5pt,roundcorner=5pt]
+        \centering\vspace{0.3cm}
+        \textit{``Putting the AI in rAIdiology.''}\\[0.3cm]
+        \textbf{Website:} \href{https://qure.ai}{qure.ai}\\
+        \textbf{Founded:} 2016, Mumbai, India\\
+        \textbf{Domain:} AI Medical Imaging (Radiology, TB, Neurology)\\
+        \textbf{Recognition:} TIME 100 Most Influential Companies 2025\\
+        \vspace{0.3cm}
+    \end{mdframed}
+    \vspace{2cm}
+    \begin{tabular}{ll}
+        \textbf{Document Type:} & Technical System Essay \\
+        \textbf{Subject:} & Competitor Analysis of WellnessGPT \\
+        \textbf{Date:} & March 2026 \\
+    \end{tabular}
+\end{titlepage}
+
+\tableofcontents\newpage
+
+\begin{abstract}
+\noindent This TSE provides a detailed analysis of \textbf{Qure.ai}, a global leader in medical imaging AI based in Mumbai, India. Founded in 2016, Qure.ai deploys deep learning models for automated analysis of chest X-rays, head CT scans, lung nodule CT, and other imaging modalities. While WellnessGPT focuses on clinical workflow orchestration and patient management, Qure.ai focuses specifically on diagnostic imaging AI --- making it a complementary competitor in the broader healthcare AI landscape.
+\end{abstract}\newpage
+
+\section{Introduction and Overview}
+
+\subsection{What is Qure.ai?}
+\textbf{Qure.ai} is an AI-powered medical imaging company that develops deep learning algorithms to automatically detect, localize, and prioritize clinical findings in medical images. It acts as an always-on second opinion for radiologists, significantly reducing turnaround times and improving detection accuracy for conditions like tuberculosis, stroke, lung cancer, and fractures.
+
+\begin{table}[H]\centering\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{lX}\toprule
+\textbf{Attribute} & \textbf{Detail}\\\midrule
+Company Name     & Qure.ai \\
+Platform Type    & AI Medical Imaging and Diagnostic Intelligence \\
+Website          & \href{https://qure.ai}{qure.ai} \\
+Founded          & 2016 \\
+HQ               & Mumbai, India (offices in London, New York, Dubai) \\
+CEO / Co-founder & Prashant Warier \\
+R\&D Head        & Pooja Rao \\
+Global Reach     & 5,200+ sites across 105+ countries \\
+Impact           & 40 million+ lives impacted \\
+Publications     & 100+ peer-reviewed publications (The Lancet, Nature, Radiology) \\
+Recognition      & TIME 100 Most Influential Companies 2025 \\
+Funding          & $\sim$\$40M+ (Series B, 2022) \\
+Key Investors    & Peak XV Partners (Sequoia India), Fractal, MassMutual Ventures, Novo Holdings \\
+\bottomrule\end{tabularx}\caption{Qure.ai Platform Identity}\end{table}
+
+\section{Product Portfolio}
+
+Qure.ai offers a suite of domain-specific AI products, each targeting a distinct imaging modality and clinical specialty.
+
+\subsection{qXR --- Chest X-Ray AI}
+\begin{itemize}[noitemsep]
+    \item Detects and localizes \textbf{29+ findings} on chest X-rays including TB, pneumonia, pleural effusion, pneumothorax, and COVID-19 signs
+    \item Reduces TB confirmatory test turnaround time from weeks to hours
+    \item \textbf{60\% cost reduction} in TB confirmatory testing in public health settings
+    \item \textbf{FDA 510(k)} cleared for Pneumothorax and Pleural Effusion
+    \item \textbf{WHO-evaluated} for TB screening in low-resource settings
+    \item Deployed in national TB programs across India, Philippines, Nigeria, and others
+\end{itemize}
+
+\subsection{qER --- Neurocritical Care AI}
+\begin{itemize}[noitemsep]
+    \item Processes non-contrast Head CT scans for life-threatening anomalies
+    \item Detects: Intracranial Hemorrhage (ICH), Large Vessel Occlusion (LVO), Midline Shift, Hydrocephalus, skull fractures
+    \item \textbf{100\% sensitivity} for ICH detection in clinical validation studies
+    \item Reduces time to intervention by \textbf{30\%} in emergency departments
+    \item \textbf{CE Class IIb} and \textbf{FDA cleared} for multiple findings
+\end{itemize}
+
+\subsection{qLung --- Lung Cancer Screening AI}
+\begin{itemize}[noitemsep]
+    \item Detects, segments, and measures lung nodules on CT scans
+    \item Provides malignancy risk scoring using Fleischner Society guidelines
+    \item Longitudinal tracking: compares current vs. prior scans to calculate growth rate
+    \item \textbf{FDA cleared and CE marked}
+\end{itemize}
+
+\subsection{Additional Products}
+\begin{table}[H]\centering\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{lX}\toprule
+\textbf{Product} & \textbf{Function}\\\midrule
+\textbf{qMSK}   & AI for musculoskeletal X-rays; detects fractures and bone abnormalities \\
+\textbf{qHeart} & Heart failure detection; cardiomegaly assessment on chest X-rays \\
+\textbf{qQuant / qBrain} & Volumetric brain MRI analysis for neurodegenerative disease monitoring \\
+\bottomrule\end{tabularx}\caption{Additional Qure.ai Products}\end{table}
+
+\section{Technology Stack}
+
+\begin{table}[H]\centering\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{llX}\toprule
+\textbf{Layer} & \textbf{Technology} & \textbf{Role}\\\midrule
+Foundation AI      & Deep Learning CNNs         & Trained on 1 billion+ anonymized medical images \\
+Cloud              & Cloud-agnostic (Azure, AWS, GCP) + On-premise & Flexible deployment \\
+Imaging Standards  & DICOM / PACS integration   & Seamless hospital image archiving integration \\
+Data Exchange      & HL7 / FHIR                 & EHR/HMIS interoperability \\
+Mobile Platform    & Qure App (iOS/Android)     & Real-time radiologist alerts on smartphones \\
+Embedding Models   & Custom medical image embeddings & Representing imaging studies as AI features \\
+\bottomrule\end{tabularx}\caption{Qure.ai Technology Stack}\end{table}
+
+\section{System Flow --- Hospital Deployment}
+\begin{enumerate}
+    \item \textbf{Image Acquisition:} Patient undergoes X-ray or CT scan at the hospital
+    \item \textbf{Automated Processing:} DICOM image routed to Qure AI server before reaching radiologist workstation
+    \item \textbf{Triage and Alerting:} Critical findings (stroke, pneumothorax) trigger alerts to clinical team smartphones within seconds
+    \item \textbf{Assisted Reporting:} Radiologist opens the study; AI-detected findings are highlighted, pre-filled draft report available
+    \item \textbf{Clinical Decision:} Clinician reviews AI findings, confirms or corrects, and finalizes the diagnostic report
+\end{enumerate}
+
+\section{Regulatory Clearances and Compliance}
+
+\begin{table}[H]\centering\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{lX}\toprule
+\textbf{Certification} & \textbf{Detail}\\\midrule
+FDA 510(k)       & Multiple clearances for chest X-ray (Pneumothorax, PE) and head CT (ICH, LVO) \\
+CE Class IIb     & European conformity for Class IIb medical devices \\
+ISO 13485        & Medical Device Quality Management System \\
+ISO 27001        & Information Security Management \\
+WHO Compendium   & Listed in WHO compendium of innovative health technologies for low-resource settings \\
+\bottomrule\end{tabularx}\caption{Regulatory Clearances}\end{table}
+
+\section{Market Impact and Clinical Evidence}
+
+\begin{table}[H]\centering\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{lX}\toprule
+\textbf{Metric} & \textbf{Value}\\\midrule
+Global Deployment Sites & 5,200+ across 105+ countries \\
+Lives Impacted          & 40 million+ \\
+Peer-Reviewed Publications & 100+ (The Lancet, Nature, Radiology, NEJM) \\
+TB Cost Reduction       & 60\% reduction in confirmatory TB testing costs \\
+ICH Detection           & 100\% sensitivity in clinical validation \\
+Turnaround Time (TAT)   & Up to 99\% reduction in critical finding TAT \\
+Time to Intervention    & 30\% reduction for acute cases \\
+\bottomrule\end{tabularx}\caption{Clinical Impact Metrics}\end{table}
+
+\section{Competitive Positioning vs. WellnessGPT}
+
+\begin{table}[H]\centering\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{lXX}\toprule
+\textbf{Dimension} & \textbf{Qure.ai} & \textbf{WellnessGPT}\\\midrule
+Core Focus      & Diagnostic AI Imaging        & Full-Stack Healthcare Agentic OS \\
+AI Type         & Discriminative (CNN detection) & Generative + Agentic (LLM-based) \\
+Primary Users   & Radiologists, emergency teams & Clinicians, admins, patients \\
+Location        & Mumbai, India (Global)        & Mumbai, India (Primarily India) \\
+Geography       & 105+ countries                & India-first \\
+Compliance      & FDA, CE, ISO 13485, WHO       & HIPAA, ABDM, FHIR \\
+Memory          & DICOM-based image history    & HealthMem: Graph + Vector + KV \\
+Funding         & \$40M+ Series B              & Startup backing (Google/MS/NVIDIA) \\
+Relationship    & Complementary (imaging layer) & Competitive (workflow OS layer) \\
+\bottomrule\end{tabularx}\caption{Qure.ai vs. WellnessGPT Comparison}\end{table}
+
+\section{Conclusion}
+
+Qure.ai is the world's most validated AI platform for \textbf{medical imaging diagnostics}. Its 1-billion-image training corpus, 100+ peer-reviewed publications, and global regulatory clearances (FDA, CE, WHO) represent an extraordinary clinical evidence moat. As an Indian company with global reach, Qure.ai occupies a distinct but adjacent market to WellnessGPT: where WellnessGPT provides the \textbf{workflow orchestration OS}, Qure.ai provides the \textbf{diagnostic intelligence layer} for imaging. A hospital deploying WellnessGPT for workflow automation could simultaneously deploy Qure.ai for radiology AI, making them more \textbf{complementary than competitive}.
+
+\vspace{0.5cm}\hrule\vspace{0.3cm}
+\small\textbf{Source:} \href{https://qure.ai}{qure.ai}. Research conducted March 2026.
+\end{document}
